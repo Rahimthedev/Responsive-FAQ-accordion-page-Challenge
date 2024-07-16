@@ -1,0 +1,99 @@
+body {
+    font-family: "Work Sans", sans-serif;
+    background-image: url(./assets/images/background-pattern-desktop.svg);
+    background-size: 100% cover;
+    background-repeat: no-repeat;
+    background-color: hsl(275, 100%, 97%);
+    display: flex;
+    align-items: center;
+    height: 100vh;
+}
+
+.faq-container {
+    max-width: 480px;
+    background-color: white;
+    margin: 0 auto;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    color: hsl(292, 42%, 14%);
+}
+
+.header {
+    display: flex;
+    gap: 20px;
+    font-size: 24px;
+}
+
+.question-answer {
+    margin: 10px 0;
+    overflow: hidden;
+    border-bottom: 1px solid rgba(211, 211, 211, 0.699);
+    padding-bottom: 20px;
+    position: relative;
+}
+
+.question-answer input {
+    display: none;
+}
+
+.question-answer label {
+    cursor: pointer;
+    font-weight: 700;
+    display: flex;
+    justify-content: flex-start;
+    padding: 10px;
+}
+
+.question-answer label:hover {
+    color: rgb(159, 48, 219);
+}
+
+.question-answer label:active {
+    color: rgb(159, 48, 219);
+}
+
+.question-answer label::after {
+    content: url(./assets/images/icon-plus.svg);
+    position: absolute;
+    right: 0;
+    transition: transform 0.3s ease;
+}
+
+.question-answer input:checked + label::after {
+    content: url(./assets/images/icon-minus.svg);
+    transform: rotate(180deg);
+}
+
+.question-answer .answer {
+    max-height: 0;
+    overflow: hidden;
+    margin-top: 10px;
+    padding: 0 10px;
+    transition: max-height 0.9s ease;
+    color: hsl(292, 16%, 49%);
+}
+
+.question-answer input:checked + label + .answer {
+    max-height: 150px;
+}
+
+.question-answer:last-child {
+    border-bottom: none;
+}
+
+@media (min-width: 375px) and (max-width: 700px) {
+    .faq-container {
+        margin: 30px;
+        padding: 15px;
+        text-wrap: balance;
+    }
+}
+
+@media (max-width: 375px) {
+    .faq-container {
+        margin: 20px;
+        padding: 10px;
+        text-wrap: balance;
+    }
+}
